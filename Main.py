@@ -39,7 +39,7 @@ from dashboard_server import bot_state, start_web_dashboard
 
 # ==================== CONFIGURATION ====================
 WEB_HOST = "0.0.0.0"
-WEB_PORT = 20335
+WEB_PORT = int(os.environ.get("PORT", 20335))  # Railway dynamic port fix
 ACCOUNTS_FILE = "accounts.json"
 TOKEN_CACHE_FILE = "token_cache.json"
 DEVICES_FILE = "devices.json"
@@ -377,18 +377,6 @@ sai_tail_dul = bytes.fromhex(
     "3138352e3138332e353700000000000001000000000000000000"
     "0000000100000000000100000000000100b8eeec91c5d7ffde110200"
 )
-
-headers = {
-    'User-Agent': 'UnityPlayer/2018.4.12f1 (UnityWebRequest/1.0, libcurl/8.5.0-DEV)',
-    'Connection': 'Keep-Alive',
-    'Accept-Encoding': 'gzip',
-    'Content-Type': 'application/x-www-form-urlencoded',
-    'Expect': '100-continue',
-    'X-Unity-Version': '2018.4.12f1',
-    'X-GA-SV': '1789535859',
-    'X-GA': 'v1 1',
-    'ReleaseVersion': 'OB55'
-}
 
 class Colors:
     HEADER = '\033[95m'
